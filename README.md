@@ -1,4 +1,4 @@
-# Elevvo Predictive Maintenance System (Task 9)
+# Industrial Predictive Maintenance System
 
 ![Elevvo AI](static/img/logo.svg)
 

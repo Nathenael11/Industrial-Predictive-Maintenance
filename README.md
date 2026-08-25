@@ -16,7 +16,7 @@
 
 | | |
 | :--- | :--- |
-| **URL** | [https://industrial-predictive-maintenance.onrender.com](https://industrial-predictive-maintenance.onrender.com) |
+| **URL** | [https://industrial-predictive-maintenance.onrender.com](https://industrial-predictive-maintenance1.onrender.com) |
 | **Deployment Platform** | Render.com |
 | **Status** | ✅ Live |
 

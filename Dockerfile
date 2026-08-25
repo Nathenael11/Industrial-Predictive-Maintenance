@@ -1,33 +1,34 @@
-# Multi-stage production Dockerfile
-FROM python:3.10-slim as builder
+# ============================================
+# PRODUCTION DOCKERFILE - PREDICTIVE MAINTENANCE
+# ============================================
 
-WORKDIR /app
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    && rm -rf /var/lib/apt/lists/*
-
-COPY requirements.txt .
-RUN pip install --no-cache-dir --user -r requirements.txt
-
-# Final runtime image
 FROM python:3.10-slim
 
+# Set working directory
 WORKDIR /app
 
-# Copy installed python packages from builder
-COPY --from=builder /root/.local /root/.local
-ENV PATH=/root/.local/bin:$PATH
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy application source code
+# Copy requirements first (for better caching)
+COPY requirements.txt .
+
+# Install Python dependencies as root
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application code
 COPY . .
 
-# Create non-root app user for container security
-RUN useradd -m appuser && chown -R appuser:appuser /app
+# Create non-root user
+RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app
+
+# Switch to non-root user
 USER appuser
 
+# Expose port
 EXPOSE 5000
 
-ENV PYTHONUNBUFFERED=1
-
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "2", "--threads", "2", "app:app"]
+# Run with Gunicorn (using full path)
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]

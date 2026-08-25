@@ -2,8 +2,25 @@
 
 ![Elevvo AI](static/img/logo.svg)
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Online-brightgreen)](https://industrial-predictive-maintenance.onrender.com)
+[![Deployed on Render](https://img.shields.io/badge/Deployed%20on-Render-46E3B7?logo=render&logoColor=white)](https://industrial-predictive-maintenance.onrender.com)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 > **Production-Ready Predictive Maintenance System utilizing the UCI AI4I 2020 Dataset.**  
 > Built with XGBoost, Flask, Docker, and an FDR-Optimized decision engine to minimize costly false alarms in industrial manufacturing.
+
+---
+
+## 🌐 Live Demo
+
+| | |
+| :--- | :--- |
+| **URL** | [https://industrial-predictive-maintenance.onrender.com](https://industrial-predictive-maintenance.onrender.com) |
+| **Deployment Platform** | Render.com |
+| **Status** | ✅ Live |
+
+> **Note:** The app is hosted on Render's free tier, so the instance may spin down after periods of inactivity — the first request after idling can take a few seconds to wake it back up.
 
 ---
 
@@ -115,7 +132,8 @@ predictive-maintenance/
 
 1. **Clone & Navigate into directory**:
    ```bash
-   cd predictive-maintenance
+   git clone https://github.com/Nathenael11/Industrial-Predictive-Maintenance.git
+   cd Industrial-Predictive-Maintenance
    ```
 
 2. **Install Dependencies**:
@@ -228,6 +246,25 @@ pytest tests/test_app.py -v
 - **Web Framework**: Flask, Jinja2, Werkzeug, Gunicorn
 - **Frontend**: Vanilla HTML5, Modern CSS3 (Dark Theme, Glassmorphism), SVG Animations, JavaScript ES6
 - **DevOps & CI/CD**: Docker, Docker-Compose, Pytest, Bash, GitHub Actions
+- **Deployment**: Render.com
+
+---
+
+## 🙏 Acknowledgments
+
+- **[Elevvo Internship Program](https://elevvo.tech/)** — for the project brief and mentorship framework
+- **[UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset)** — for the AI4I 2020 Predictive Maintenance Dataset
+- **[Render.com](https://render.com/)** — for free and reliable application hosting
+
+---
+
+## 👤 Author
+
+**Nathenael Ermias**
+
+- 📧 Email: [nathnaelermias@gmail.com](mailto:nathnaelermias@gmail.com)
+- 💻 GitHub: [@Nathenael11](https://github.com/Nathenael11)
+- 🔗 LinkedIn: [nathenael-ermias](https://www.linkedin.com/in/nathenael-ermias)
 
 ---
 

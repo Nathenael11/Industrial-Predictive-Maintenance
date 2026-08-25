@@ -1,0 +1,35 @@
+{
+  "best_threshold": 0.7599999999999999,
+  "test_default": {
+    "precision": 0.46875,
+    "recall": 0.8823529411764706,
+    "f1": 0.6122448979591837,
+    "fdr": 0.53125
+  },
+  "test_optimal": {
+    "precision": 0.6885245901639344,
+    "recall": 0.8235294117647058,
+    "f1": 0.75,
+    "fdr": 0.3114754098360656
+  },
+  "feature_names": [
+    "Air_temperature_K",
+    "Process_temperature_K",
+    "Rotational_speed_rpm",
+    "Torque_Nm",
+    "Tool_wear_min",
+    "Type_H",
+    "Type_L",
+    "Type_M"
+  ],
+  "feature_importances": {
+    "Rotational_speed_rpm": 0.29573869705200195,
+    "Torque_Nm": 0.2194976508617401,
+    "Tool_wear_min": 0.19490914046764374,
+    "Air_temperature_K": 0.10397684574127197,
+    "Process_temperature_K": 0.06510931998491287,
+    "Type_M": 0.047095973044633865,
+    "Type_L": 0.04205085337162018,
+    "Type_H": 0.03162151947617531
+  }
+}

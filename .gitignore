@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter & Data
+.ipynb_checkpoints
+ai4i2020.csv
+summary_metrics.csv
+test_predictions.csv
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# Docker / OS
+.DS_Store
+Thumbs.db

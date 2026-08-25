@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batch Predictive Analysis | Elevvo Shield</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="Elevvo Logo" class="nav-logo">
+                <div class="brand-text">
+                    <span class="brand-title">Elevvo Maintenance AI</span>
+                    <span class="brand-subtitle">AI4I Predictive Telemetry Engine</span>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a href="/" class="nav-item">Single Prediction</a>
+                <a href="/batch" class="nav-item active">Batch Upload</a>
+                <a href="/health" target="_blank" class="nav-item badge-health">API Health</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="banner">
+            <div class="banner-content">
+                <h2>Batch Machine Predictive Diagnostic Upload</h2>
+                <p>Upload multi-row CSV telemetry datasets to evaluate whole plant machinery fleet failure risks simultaneously.</p>
+            </div>
+            <div>
+                <a href="/download_template" class="btn btn-secondary">Download Sample CSV Template</a>
+            </div>
+        </section>
+
+        <!-- Dropzone Area -->
+        <section class="card upload-card">
+            <div id="dropzone" class="dropzone">
+                <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <h4>Drag & Drop Telemetry CSV File Here</h4>
+                <p>or click to browse from your computer (CSV files only)</p>
+                <input type="file" id="batch-file-input" accept=".csv" class="file-input-hidden">
+                <button type="button" id="btn-browse" class="btn btn-primary">Select CSV File</button>
+                <span id="selected-filename" class="selected-filename"></span>
+            </div>
+
+            <!-- Progress Bar -->
+            <div id="progress-container" class="progress-container hidden">
+                <div class="progress-bar-bg">
+                    <div id="progress-fill" class="progress-fill" style="width: 0%;"></div>
+                </div>
+                <span id="progress-text" class="progress-text">Processing dataset...</span>
+            </div>
+        </section>
+
+        <!-- KPI Summary Cards (Hidden until batch results) -->
+        <section id="batch-summary-cards" class="kpi-grid hidden">
+            <div class="kpi-card">
+                <span class="kpi-title">Total Records</span>
+                <span id="kpi-total" class="kpi-value">0</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-title">Predicted Failures</span>
+                <span id="kpi-failures" class="kpi-value text-danger">0</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-title">Fleet Failure Rate</span>
+                <span id="kpi-rate" class="kpi-value text-warning">0%</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-title">Average Risk Score</span>
+                <span id="kpi-risk" class="kpi-value text-cyan">0%</span>
+            </div>
+        </section>
+
+        <!-- Batch Predictions Table Section -->
+        <section id="batch-results-section" class="card history-section hidden">
+            <div class="card-header flex-header">
+                <div>
+                    <h3>Batch Diagnostic Results</h3>
+                    <p>Evaluated Machine Telemetry Risk Assessments</p>
+                </div>
+                <div class="flex-actions">
+                    <input type="text" id="table-search" placeholder="Search predictions..." class="search-input">
+                    <button id="btn-export-csv" class="btn btn-secondary">Export Results to CSV</button>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="data-table" id="batch-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Type</th>
+                            <th>Air Temp (K)</th>
+                            <th>Proc Temp (K)</th>
+                            <th>Speed (rpm)</th>
+                            <th>Torque (Nm)</th>
+                            <th>Tool Wear</th>
+                            <th>Risk Score</th>
+                            <th>Status</th>
+                            <th>Action Recommendation</th>
+                        </tr>
+                    </thead>
+                    <tbody id="batch-tbody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Elevvo Internship Predictive Maintenance System. Built for AI4I 2020 Dataset.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
